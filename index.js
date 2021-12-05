@@ -8,7 +8,7 @@ require('./startup/routes')(app);
 require('./startup/db')();
 require('./startup/prod')(app);
 
-const port = config.get('PORT') || 8002;
+const port = process.env.PORT || config.get('PORT') || 8002;
 const server = app.listen(port, () => winston.info(`listening on ${port}...`));
 
 module.exports = server;
